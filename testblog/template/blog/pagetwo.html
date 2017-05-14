@@ -1,0 +1,117 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Тест блога</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <style>
+      .leftimg {
+        float:left; /* Выравнивание по левому краю */
+        margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+      }
+      .rightimg  {
+        float: right; /* Выравнивание по правому краю  */ 
+        margin: 7px 0 7px 7px; /* Отступы вокруг картинки */
+      }
+      .one {
+        border: none; /* Убираем границу */
+        background-color: #337ab7;; /* Цвет линии */
+        color: #337ab7;; /* Цвет линии для IE6-7 */
+        height: 2px; /* Толщина линии */
+       }
+       .three {
+        border: none; /* Убираем границу */
+        background-color: #337ab7;; /* Цвет линии */
+        color: #337ab7;; /* Цвет линии для IE6-7 */
+        height: 5px; /* Толщина линии */
+       }
+      .soderganie {
+        margin-bottom: 30px;
+      }
+      .nav {
+        margin-top: 15px;
+      }
+      .nav-pills {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>  
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-12 col-sm-12">      
+            <div class="col-md-6 col-sm-6">
+              <div>
+                  <h5 align="left"><strong>User: {{ user }}</strong></h5>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+              <div>      
+                  <a href="../../logout">
+                    <h5 align="right"><strong>Logout</strong></h5>
+                  </a>      
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <a><img width="100%" alt="" src="{% static 'img/foto1.png' %}"></a>
+            <ul class="nav nav-pills">
+              <li class="active">
+                  <a  align="left" href="../../">Главная</a>
+              </li>
+            </ul>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </header>
+
+    
+    <div class="content">
+      <div class="container">
+        <div class="row">
+
+
+          <div class="col-md-12 col-sm-12">
+            <hr class="one">
+            <div>
+                <h4 align="center"><strong>{{ post.header }}</strong></h4>
+                <p align="justify">
+                  {{ post.content }}
+                </p>
+                <p>{{ post.qdate }}</p>
+                <hr>
+                <a  class="btn btn-primary" href="../../write/{{ post.id }}">Прочитано</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+    
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
